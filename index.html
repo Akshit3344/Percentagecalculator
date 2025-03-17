@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Percentage Calculator - Your Essential Math Tool</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        .tagline {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        .calculator {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .calc-section {
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        h2 {
+            margin-top: 0;
+            color: #2980b9;
+            font-size: 18px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .result {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #e8f5e9;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .ad-container {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #fafafa;
+            border: 1px dashed #ddd;
+            border-radius: 4px;
+            text-align: center;
+        }
+        .ad-label {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 5px;
+        }
+        .ad-placeholder {
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #aaa;
+            font-style: italic;
+        }
+        .info-section {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 14px;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+    <h1>Percentage Calculator</h1>
+    <p class="tagline">Fast, accurate percentage calculations for everyday use</p>
+    
+    <!-- Top ad space -->
+    <div class="ad-container">
+        <div class="ad-label">ADVERTISEMENT</div>
+        <div class="ad-placeholder">Your ad will appear here</div>
+    </div>
+    
+    <div class="calculator">
+        <div class="calc-section">
+            <h2>Calculate Percentage (X% of Y)</h2>
+            <div class="input-group">
+                <label for="percent1">Percentage (X%):</label>
+                <input type="number" id="percent1" placeholder="Enter percentage">
+            </div>
+            <div class="input-group">
+                <label for="number1">Number (Y):</label>
+                <input type="number" id="number1" placeholder="Enter number">
+            </div>
+            <button onclick="calculatePercentOf()">Calculate</button>
+            <div id="result1" class="result">Result: </div>
+        </div>
+        
+        <!-- Middle ad space -->
+        <div class="ad-container">
+            <div class="ad-label">ADVERTISEMENT</div>
+            <div class="ad-placeholder">Your ad will appear here</div>
+        </div>
+        
+        <div class="calc-section">
+            <h2>Calculate X is what percent of Y?</h2>
+            <div class="input-group">
+                <label for="number2">Number (X):</label>
+                <input type="number" id="number2" placeholder="Enter number">
+            </div>
+            <div class="input-group">
+                <label for="number3">Number (Y):</label>
+                <input type="number" id="number3" placeholder="Enter number">
+            </div>
+            <button onclick="calculateWhatPercent()">Calculate</button>
+            <div id="result2" class="result">Result: </div>
+        </div>
+        
+        <div class="calc-section">
+            <h2>Calculate Percentage Increase/Decrease</h2>
+            <div class="input-group">
+                <label for="oldValue">Original Value:</label>
+                <input type="number" id="oldValue" placeholder="Enter original value">
+            </div>
+            <div class="input-group">
+                <label for="newValue">New Value:</label>
+                <input type="number" id="newValue" placeholder="Enter new value">
+            </div>
+            <button onclick="calculatePercentChange()">Calculate</button>
+            <div id="result3" class="result">Result: </div>
+        </div>
+    </div>
+    
+    <!-- Bottom ad space -->
+    <div class="ad-container">
+        <div class="ad-label">ADVERTISEMENT</div>
+        <div class="ad-placeholder">Your ad will appear here</div>
+    </div>
+    
+    <!-- Info section -->
+    <div class="info-section">
+        <h2>About This Percentage Calculator</h2>
+        <p>This free percentage calculator helps you solve various percentage problems quickly and accurately. Whether you're calculating discounts, tips, tax, interest rates, or working on math homework, this tool makes percentage calculations easy.</p>
+        
+        <h3>Features:</h3>
+        <ul>
+            <li><strong>Calculate X% of Y</strong> - Find out what percentage of a number is (e.g., 15% of 200)</li>
+            <li><strong>Calculate X is what percent of Y</strong> - Determine the percentage relationship between two numbers</li>
+            <li><strong>Calculate Percentage Increase/Decrease</strong> - Find the percentage change between two values</li>
+        </ul>
+        
+        <h3>Common Uses:</h3>
+        <ul>
+            <li><strong>Shopping</strong> - Calculate discounts and sales tax</li>
+            <li><strong>Dining</strong> - Figure out tips at restaurants</li>
+            <li><strong>Finance</strong> - Determine interest rates and investment returns</li>
+            <li><strong>Education</strong> - Help with math homework and exams</li>
+            <li><strong>Business</strong> - Calculate profit margins and growth rates</li>
+        </ul>
+        
+        <p>Our calculator is designed to be user-friendly and works on all devices. No need to install anything - just bookmark this page for quick access whenever you need to calculate percentages!</p>
+    </div>
+    
+    <div class="footer">
+        <p>&copy; <span id="current-year"></span> Percentage Calculator | All Rights Reserved</p>
+    </div>
+
+    <script>
+        // Update copyright year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // Calculate X% of Y
+        function calculatePercentOf() {
+            const percent = parseFloat(document.getElementById('percent1').value);
+            const number = parseFloat(document.getElementById('number1').value);
+            
+            if (isNaN(percent) || isNaN(number)) {
+                document.getElementById('result1').textContent = "Result: Please enter valid numbers";
+                return;
+            }
+            
+            const result = (percent / 100) * number;
+            document.getElementById('result1').textContent = `Result: ${percent}% of ${number} = ${result.toFixed(2)}`;
+        }
+        
+        // Calculate X is what percent of Y
+        function calculateWhatPercent() {
+            const number1 = parseFloat(document.getElementById('number2').value);
+            const number2 = parseFloat(document.getElementById('number3').value);
+            
+            if (isNaN(number1) || isNaN(number2)) {
+                document.getElementById('result2').textContent = "Result: Please enter valid numbers";
+                return;
+            }
+            
+            if (number2 === 0) {
+                document.getElementById('result2').textContent = "Result: Cannot divide by zero";
+                return;
+            }
+            
+            const result = (number1 / number2) * 100;
+            document.getElementById('result2').textContent = `Result: ${number1} is ${result.toFixed(2)}% of ${number2}`;
+        }
+        
+        // Calculate percentage increase/decrease
+        function calculatePercentChange() {
+            const oldValue = parseFloat(document.getElementById('oldValue').value);
+            const newValue = parseFloat(document.getElementById('newValue').value);
+            
+            if (isNaN(oldValue) || isNaN(newValue)) {
+                document.getElementById('result3').textContent = "Result: Please enter valid numbers";
+                return;
+            }
+            
+            if (oldValue === 0) {
+                document.getElementById('result3').textContent = "Result: Cannot calculate with original value of zero";
+                return;
+            }
+            
+            const change = newValue - oldValue;
+            const percentChange = (change / Math.abs(oldValue)) * 100;
+            
+            let message;
+            if (percentChange > 0) {
+                message = `Result: ${Math.abs(percentChange).toFixed(2)}% increase`;
+            } else if (percentChange < 0) {
+                message = `Result: ${Math.abs(percentChange).toFixed(2)}% decrease`;
+            } else {
+                message = "Result: No change (0%)";
+            }
+            
+            document.getElementById('result3').textContent = message;
+        }
+    </script>
+</body>
+</html>
